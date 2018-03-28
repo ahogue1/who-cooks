@@ -18,6 +18,12 @@
 #  username               :string
 #  photo                  :string
 #  color                  :string
+#  provider               :string
+#  uid                    :string
+#  first_name             :string
+#  last_name              :string
+#  token                  :string
+#  token_expiry           :datetime
 #
 # Indexes
 #

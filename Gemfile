@@ -5,7 +5,7 @@ gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
-gem 'puma'
+gem 'thin'
 gem 'rails', '5.1.4'
 gem 'redis'
 
@@ -16,6 +16,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
+gem 'omniauth-facebook', '~> 4.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

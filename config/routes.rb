@@ -19,10 +19,10 @@
 #                     root GET    /                              pages#home
 #                   groups POST   /groups(.:format)              groups#create
 #                new_group GET    /groups/new(.:format)          groups#new
-# 
+#
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
 
   resources :groups, only: [:new, :create]
