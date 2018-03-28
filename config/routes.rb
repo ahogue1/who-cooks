@@ -17,10 +17,14 @@
 #                          DELETE /users(.:format)               devise/registrations#destroy
 #                          POST   /users(.:format)               devise/registrations#create
 #                     root GET    /                              pages#home
+#                   groups POST   /groups(.:format)              groups#create
+#                new_group GET    /groups/new(.:format)          groups#new
 # 
 
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+
+  resources :groups, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

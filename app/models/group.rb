@@ -10,4 +10,12 @@
 
 class Group < ApplicationRecord
   has_and_belongs_to_many :users
+
+  def self.build(group_params, user)
+    group = Group.new(group_params)
+    group.users << user
+
+    group
+  end
+
 end
