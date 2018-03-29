@@ -5,6 +5,7 @@
   <%= f.input :date %>
   <%= f.input :category %>
   <%= f.association :user, label_method: :username %>
+  <%= f.association :group, label_method: :name %>
 
   <%= f.submit 'Create', class: "btn btn-primary" %>
   <% end %>

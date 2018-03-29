@@ -10,6 +10,7 @@
 
 class Group < ApplicationRecord
   has_and_belongs_to_many :users
+  has_many :meals
 
   def self.build(group_params, user)
     group = Group.new(group_params)
