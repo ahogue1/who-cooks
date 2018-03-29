@@ -1,5 +1,15 @@
 class MealsController < ApplicationController
 
+  def index
+    @today = Date.today
+    @groups = current_user.groups
+    @week_days = @today.beginning_of_week..@today.end_of_week
+
+    @meals = Meal.
+      where(group: @groups).
+      where(date: @week_days)
+  end
+
   def new
     @meal = Meal.new
   end

@@ -1,0 +1,18 @@
+<h1>Meal indexxxxx</h1>
+
+<% @groups.each do |group| %>
+  <%= group.name %>
+
+  <% @week_days.each do |day| %>
+    <div>
+      <%= day %>
+
+      <% meal = @meals.find { |meal| meal.date == day && meal.group_id == group.id } %>
+      <% if meal %>
+        <%= meal.name %>
+      <% else %>
+        <p> no meal </p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
