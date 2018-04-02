@@ -1,18 +1,51 @@
-<h1>Meal indexxxxx</h1>
+<div class="container">
+  <h1>Meal indexxxxx</h1>
 
-<% @groups.each do |group| %>
-  <%= group.name %>
+  <% @groups.each do |group| %>
 
-  <% @week_days.each do |day| %>
-    <div>
-      <%= day %>
+    <h3><%= group.name %></h3>
+    <h4>Meals: <%= @week_days.first.strftime("%B %e") %> - <%= @week_days.last.strftime("%e") %></p></h4>
 
-      <% meal = @meals.find { |meal| meal.date == day && meal.group_id == group.id } %>
-      <% if meal %>
-        <%= meal.name %>
-      <% else %>
-        <p> no meal </p>
+    <div class="row no-gutters">
+
+      <% @week_days.each do |day| %>
+
+        <div class="col-xs-14 col-sm-7 col-md-2">
+          <div class="card">
+            <div class ="card-heading">
+              <h4><%= day.strftime("%A %e") %></h4>
+            </div>
+
+            <div class="card-body">
+              <% meal = @meals.find { |meal| meal.date == day && meal.group_id == group.id } %>
+
+              <% if meal %>
+                <%= image_tag avatar_url(meal.user), class: "avatar-md"%>
+                <p><%= meal.user.username %> </p>
+                <p>Cooking: <%= meal.name %></p>
+
+                <% if meal.user == current_user %>
+                  <%=link_to "Change Your Meal", edit_meal_path(meal.id) %>
+                <% end %>
+
+              <% else %>
+
+                <a type="button" class="" data-container="body" data-toggle="popover" data-placement="bottom" data-group-id="<%= group.id %>" data-day="<%= day %>">
+                  Add
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
       <% end %>
+
     </div>
+
   <% end %>
-<% end %>
+
+</div>
+
+<div class="hidden-form">
+  <%= render 'form', meal: @meal %>
+</div>

@@ -1,11 +1,9 @@
-<h1>New Meals page! </h1>
-
-<%= simple_form_for(@meal) do |f| %>
+<%= simple_form_for(meal) do |f| %>
   <%= f.input :name %>
-  <%= f.input :date %>
+  <%= f.input :date, as: :text, as: :hidden %>
   <%= f.input :category %>
   <%= f.association :user, label_method: :username %>
-  <%= f.association :group, label_method: :name %>
+  <%= f.association :group, label_method: :name, as: :hidden %>
 
   <%= f.submit 'Create', class: "btn btn-primary" %>
-  <% end %>
+<% end %>

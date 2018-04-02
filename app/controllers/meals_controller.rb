@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
 
   def index
+    @meal = Meal.new
     @today = Date.today
     @groups = current_user.groups
     @week_days = @today.beginning_of_week..@today.end_of_week
@@ -10,18 +11,15 @@ class MealsController < ApplicationController
       where(date: @week_days)
   end
 
-  def new
-    @meal = Meal.new
-  end
-
   def create
     @meal = Meal.new(meal_params)
 
     if @meal.save
       redirect_to meals_path
     else
-      render :new
+      redirect_to meals_path, error: "Meal not saved complete all fields"
     end
+
   end
 
 

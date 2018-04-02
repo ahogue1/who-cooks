@@ -1,0 +1,44 @@
+
+//-------- Calendar view of meals---------
+.card{
+  height: 220px;
+  text-align: center;
+  padding: 10px;
+}
+
+.avatar-md{
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.hidden-form {
+  display: none;
+}
+
+
+// -------------tablet size
+@media screen and (max-width: 991px){
+  .no-gutters{
+    margin-right: 30;
+    margin-left: 30;
+
+    .col,
+    > [class*="col-"] {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
