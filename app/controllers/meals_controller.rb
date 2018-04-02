@@ -11,6 +11,10 @@ class MealsController < ApplicationController
       where(date: @week_days)
   end
 
+  def show
+    @meal = Meal.find(params[:id])
+  end
+
   def create
     @meal = Meal.new(meal_params)
 

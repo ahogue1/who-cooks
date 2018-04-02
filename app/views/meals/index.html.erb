@@ -20,12 +20,15 @@
               <% meal = @meals.find { |meal| meal.date == day && meal.group_id == group.id } %>
 
               <% if meal %>
-                <%= image_tag avatar_url(meal.user), class: "avatar-md"%>
-                <p><%= meal.user.username %> </p>
-                <p>Cooking: <%= meal.name %></p>
 
-                <% if meal.user == current_user %>
-                  <%=link_to "Change Your Meal", edit_meal_path(meal.id) %>
+                <%= link_to meal_path(meal.id) do %>
+
+                  <div class="meal-link">
+                    <%= image_tag avatar_url(meal.user), class: "avatar-md"%>
+                    <p><%= meal.user.username %> </p>
+                    <p>Cooking: <%= meal.name %></p>
+                  </div>
+
                 <% end %>
 
               <% else %>
