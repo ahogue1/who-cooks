@@ -1,8 +1,19 @@
 <h1>Meal show page</h1>
 
+
 <p><%= @meal.name %></p>
 <p><%= @meal.user.username %></p>
 <p><%= @meal.category %></p>
 <p><%= @meal.group.name %></p>
 
+<% @recipes.each do |recipe| %>
+  <%= link_to recipe.url do %>
+    <p><%= recipe.name %></p>
+    <%= image_tag recipe.image %>
+  <% end %>
+  <% recipe.ingredients.each do |ingredient| %>
+    <p><%= ingredient %></p>
+  <% end %>
+
+<% end %>
 
