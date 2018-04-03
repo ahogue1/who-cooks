@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'omniauth-facebook', '~> 4.0'
+gem 'httparty', '~> 0.13.7'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
