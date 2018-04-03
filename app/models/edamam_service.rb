@@ -8,7 +8,8 @@ class EdamamService
       query: {
         q: meal,
         app_id: ENV['EDAMAM_ID'],
-        app_key: ENV['EDAMAM_SECRET']
+        app_key: ENV['EDAMAM_SECRET'],
+        excluded: "dessert",
       }
     )
 
