@@ -7,12 +7,9 @@
 <p><%= @meal.group.name %></p>
 
 <% @recipes.each do |recipe| %>
-  <%= link_to recipe.url do %>
+  <%= link_to recipe.url,  target: :_blank do %>
     <p><%= recipe.name %></p>
     <%= image_tag recipe.image %>
-  <% end %>
-  <% recipe.ingredients.each do |ingredient| %>
-    <p><%= ingredient %></p>
   <% end %>
 
 <% end %>
