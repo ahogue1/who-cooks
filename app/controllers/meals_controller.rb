@@ -35,9 +35,6 @@ class MealsController < ApplicationController
     unless @recipe
       @recipe = EdamamService.new.find(params[:edamam_id])
       @recipe.save
-      # recipe.ingredients = api_recipe.ingredients
-      #   api_recipe.ingredients.each do |api_ingredient|
-      #.     Ingredient.create(api_ingredient)
     end
 
     @meal.recipe = @recipe

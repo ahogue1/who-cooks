@@ -40,7 +40,7 @@ class EdamamService
       }
     )
 
-    Recipe.new(
+    recipe = Recipe.new(
       edamam_id: response.first['uri'],
       label: response.first['label'],
       url: response.first['url'],
@@ -51,5 +51,12 @@ class EdamamService
       diet_labels: response.first['dietLabels'].join(', '),
       health_labels: response.first['healthLabels'].join(', ')
     )
+
+    response.first['ingredientLines'].each do |ingredient_line|
+      recipe.ingredients << Ingredient.new(name: ingredient_line)
+    end
+
+    recipe
   end
+
 end
