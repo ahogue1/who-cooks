@@ -28,5 +28,5 @@
 class Meal < ApplicationRecord
   belongs_to :user
   belongs_to :group
-  belongs_to :recipe
+  belongs_to :recipe, optional: true
 end
