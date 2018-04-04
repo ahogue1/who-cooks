@@ -16,7 +16,7 @@ class EdamamService
     recipes = []
 
     response['hits'].each do |json_recipe|
-      recipe = Recipe.new()
+      recipe = ApiRecipe.new()
       recipe.name = json_recipe['recipe']['label']
       recipe.url = json_recipe['recipe']['url']
       recipe.image = json_recipe['recipe']['image']
