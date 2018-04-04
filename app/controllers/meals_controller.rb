@@ -38,6 +38,7 @@ class MealsController < ApplicationController
     end
 
     @meal.recipe = @recipe
+    @meal.name = @recipe.label
 
     if @meal.save
       redirect_to meal_path(@meal)
