@@ -9,10 +9,13 @@
 <% if @recipes %>
 
   <% @recipes.each do |recipe| %>
+
     <%= link_to recipe.url,  target: :_blank do %>
       <p><%= recipe.name %></p>
       <%= image_tag recipe.image %>
     <% end %>
+
+    <%= link_to "Add Recipe", meal_path(@meal, edamam_id: recipe.id), class: "btn btn-info", method: :patch %>
   <% end %>
 
 <% else %>

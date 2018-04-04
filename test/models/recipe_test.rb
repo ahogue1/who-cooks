@@ -13,6 +13,7 @@
 #  health_labels :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  edamam_id     :string
 #
 
 require 'test_helper'
