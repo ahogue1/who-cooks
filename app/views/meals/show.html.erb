@@ -6,11 +6,18 @@
 <p><%= @meal.category %></p>
 <p><%= @meal.group.name %></p>
 
-<% @recipes.each do |recipe| %>
-  <%= link_to recipe.url,  target: :_blank do %>
-    <p><%= recipe.name %></p>
-    <%= image_tag recipe.image %>
+<% if @recipes %>
+
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe.url,  target: :_blank do %>
+      <p><%= recipe.name %></p>
+      <%= image_tag recipe.image %>
+    <% end %>
   <% end %>
 
+<% else %>
+  <p>
+    <%= @recipe.label %>
+  </p>
 <% end %>
 
