@@ -13,6 +13,7 @@ class MealsController < ApplicationController
 
   def show
     @meal = Meal.find(params[:id])
+
     if @meal.name == ""
       @recipes = EdamamService.new.search(@meal.category)
     else
