@@ -5,7 +5,6 @@ gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
-gem 'thin'
 gem 'rails', '5.1.4'
 gem 'redis'
 
@@ -23,6 +22,7 @@ gem 'httparty', '~> 0.13.7'
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'annotate', '~> 2.7'
+  gem 'thin'
 end
 
 group :development, :test do
@@ -31,4 +31,8 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  gem 'puma'
 end
