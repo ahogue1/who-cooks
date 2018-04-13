@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
     @group = Group.build(group_params, current_user)
 
     if @group.save
-      redirect_to root_path
+      redirect_to meals_path, notice: "Group Created!"
     else
       render :new
     end
