@@ -1,8 +1,8 @@
 <%= simple_form_for(meal) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: "Meal:", placeholder: "Pizza, Tacos, Sesame Chicken..." %>
   <%= f.input :date, as: :text, as: :hidden %>
-  <%= f.input :category %>
-  <%= f.association :user, label_method: :username %>
+  <%= f.input :category, label: "Not sure yet? Enter a category and we will help", placeholder: "Italian, Vegetarian..."%>
+  <%= f.association :user, label_method: :username, label: "Cook:" %>
   <%= f.association :group, label_method: :name, as: :hidden %>
 
   <%= f.submit 'Create', class: "btn btn-primary" %>
