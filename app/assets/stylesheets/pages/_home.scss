@@ -1,1 +1,32 @@
 // Specific CSS for your home-page
+
+  a { color: $link-gray; }
+  a:hover {
+    text-decoration: none;
+    color: $green;
+  }
+
+.banner{
+    color: white;
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    background-position: center left;
+    // justify-content: center;
+
+
+  h1{ margin-top: 0;}
+}
+
+.banner-content{
+  align-self: center;
+  margin-left: 9em;
+}
+
+.row-info{
+  display: flex;
+}
+
+.green{
+  color: $green;
+}

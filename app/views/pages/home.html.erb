@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" , style="background-image: url(<%= image_path("background.jpg")%> );">
+  <div class="banner-content">
+    <h1>My Meal Planner</h1>
+
+    <h3>Group Meal Planning</h3>
+    <h4>Made Simple</h4>
+     <%= link_to "Get Started", meals_path , class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div class="container container-info">
+  <h2>How it works</h2>
+  <div class="row-info">
+    <div class="col-xs-12 col-sm-5 col-md-4">
+      <div class="info-card">Add friends or family to your kitchen</div>
+    </div>
+    <div class="col-xs-12 col-sm-5 col-md-4">
+      <div class="info-card">Easily find and organize your recipes for the week</div>
+    </div>
+    <div class="col-xs-12 col-sm-5 col-md-4">
+      <div class="info-card">Take turns cooking amazing meals!</div>
+    </div>
+  </div>
+</div>
+
+<h2>Features section</h2>
