@@ -2,6 +2,7 @@ class MealsController < ApplicationController
 
   def index
     @meal = Meal.new
+    @group = Group.new
     @today = Date.today
     @groups = current_user.groups
     @week_days = @today.beginning_of_week..@today.end_of_week
@@ -25,6 +26,10 @@ class MealsController < ApplicationController
       end
 
     end
+  end
+
+  def edit
+    @meal = Meal.find(params[:id])
   end
 
   def update
