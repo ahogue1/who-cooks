@@ -1,26 +1,77 @@
-<h1>Meal show page</h1>
+<div class="meal-container">
 
+  <!-- always visable: Meal information -->
+  <div class="meal-detials container-fluid">
+    <div class="user-label">
+      <%=  link_to "Planner", meals_path%>
+      <h4><%=  @meal.group.name %></h4>
+      <%= image_tag avatar_url(@meal.user), class: "avatar-md" %>
+      <h4><%= @meal.user.username %></h4>
+    </div>
+  </div>
 
-<p><%= @meal.name %></p>
-<p><%= @meal.user.username %></p>
-<p><%= @meal.category %></p>
-<p><%= @meal.group.name %></p>
+    <!-- Only visible if user hasn't saved a recipe -->
+  <% if @recipes %>
+    <div class="search-container">
+      <div class="search-heading">
+        <% if @meal.name != '' %>
+          <h2>We're having <%= @meal.name %>!</h2>
+        <% else %>
+          <h2>We're having <%= @meal.category %>!</h2>
+        <% end %>
+        <h4> Find a recipe you like and save it</h3>
+      </div>
+      <div class="container">
+        <div class="recipe-row row">
+        <% @recipes.each do |recipe| %>
+          <div class="col-xs-10 col-sm-6 col-md-4">
+            <%= link_to recipe.url,  target: :_blank do %>
+            <div class="recipe-card card">
+                <%= image_tag recipe.image %>
+                <p><%= recipe.name %></p>
+            </div>
+              <% end %>
+              <%= link_to "Save Recipe", meal_path(@meal, edamam_id: recipe.id), method: :patch, class: "green" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<% if @recipes %>
+<!-- Only visible if user has saved one recipe for the day -->
+  <% else %>
+    <div class="recipe-container">
+      <div class="recipe-image">
+        <%= image_tag @recipe.image %>
+      </div>
+      <div class="recipe-show">
+        <div class="recipe-heading">
+          <h1><%= @meal.name %></h1>
+        </div>
+        <div class="recipe-details">
+          <p>Source: <%= @recipe.source %></p>
+          <p>Servings: <%= @recipe.yield %>
+          <p><%= @recipe.health_labels %></p>
+          <%= link_to "View Recipe", @recipe.url, class: "btn btn-primary", target: :blank %>
+          <%= link_to "edit meal", edit_meal_path, class: "btn btn-primary", target: :blank %>
+        </div>
 
-  <% @recipes.each do |recipe| %>
-
-    <%= link_to recipe.url,  target: :_blank do %>
-      <p><%= recipe.name %></p>
-      <%= image_tag recipe.image %>
-    <% end %>
-
-    <%= link_to "Add Recipe", meal_path(@meal, edamam_id: recipe.id), class: "btn btn-info", method: :patch %>
+      </div>
+    </div>
   <% end %>
 
-<% else %>
-  <p>
-    <%= @recipe.label %>
-  </p>
-<% end %>
+  <!-- Always visible: date of meal -->
+  <div class="container-fluid date-show">
+    <h2> <%= @meal.date.strftime("%A") %></h2>
+  </div>
+</div>
 
+<!-- list recipe ingredients if recipe has been saved for the day -->
+<% if @recipes.nil? %>
+  <div class="ingredient-list">
+    <h3>Ingredients</h3>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <p> <%= ingredient.name %></p>
+    <% end %>
+  </div>
+<% end %>
