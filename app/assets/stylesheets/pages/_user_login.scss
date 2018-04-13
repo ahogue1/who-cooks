@@ -1,0 +1,22 @@
+
+.form-page{
+  width: 30%;
+  margin: auto;
+  margin-bottom: 100px;
+  h2{ text-align: center;}
+  .btn{
+    margin: 9px 0;
+    width: 100%;
+  }
+}
+
+
+.facebook-btn{
+  background: $blue;
+  border: white;
+  a{ color: white; }
+}
+
+.facebook-btn:hover{
+  background-color: #33518e;
+}
