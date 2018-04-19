@@ -28,7 +28,9 @@
             <%= link_to recipe.url,  target: :_blank do %>
             <div class="recipe-card card">
                 <%= image_tag recipe.image %>
-                <p><%= recipe.name %></p>
+                <p><%= recipe.label %></p>
+                <p>From: <%= recipe.source %></p>
+                <p> <%= recipe.health_labels %></p>
             </div>
               <% end %>
               <%= link_to "Save Recipe", meal_path(@meal, edamam_id: recipe.id), method: :patch, class: "green" %>

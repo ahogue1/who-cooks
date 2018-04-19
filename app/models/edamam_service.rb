@@ -16,13 +16,17 @@ class EdamamService
     recipes = []
 
     response['hits'].each do |json_recipe|
-      recipe = ApiRecipe.new()
+      recipe = Recipe.new()
 
-      recipe.id = json_recipe['recipe']['uri']
-      recipe.name = json_recipe['recipe']['label']
+      recipe.edamam_id = json_recipe['recipe']['uri']
+      recipe.label = json_recipe['recipe']['label']
       recipe.url = json_recipe['recipe']['url']
       recipe.image = json_recipe['recipe']['image']
-      recipe.ingredients = json_recipe['recipe']['ingredientLines']
+      recipe.health_labels = json_recipe['recipe']['healthLabels']
+      recipe.diet_labels = json_recipe['recipe']['dietLabels']
+      recipe.calories = json_recipe['recipe']['calories']
+      recipe.yield = json_recipe['recipe']['yield']
+      recipe.source = json_recipe['recipe']['source']
 
       recipes << recipe
     end
