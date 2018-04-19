@@ -1,10 +1,17 @@
 
 //-------- Calendar view of meals---------
 
+.index-container{
+  color: $brown;
+}
 
 .seven-columns:last-child{
   border-right-style: solid;
   border-color: $light-brown;
+}
+
+.index-row{
+  padding-bottom: 60px;
 }
 
 .index-card{
@@ -77,6 +84,13 @@
   margin: auto 0;
 }
 
+.popover{
+  font-size: 15px;
+}
+.form-control{
+  font-size: 14px;
+  color: $brown;
+}
 
 @media screen and (min-width: 991px){
   .index-row{
@@ -86,4 +100,8 @@
   .seven-columns{
     width: calc(100% / 7);
   }
+}
+
+.right-align{
+  text-align: right;
 }
