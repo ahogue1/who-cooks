@@ -1,10 +1,14 @@
 
 //-------- Calendar view of meals---------
-.index-row{
-  margin: 3em;
+
+
+.seven-columns:last-child{
+  border-right-style: solid;
+  border-color: $light-brown;
 }
+
 .index-card{
-  height: 220px;
+  height: 100%;
   text-align: center;
   border-bottom-style: double;
   border-left-style: double;
@@ -20,10 +24,7 @@
    a{ color: $green; }
 }
 
-.col-xs-14:last-child{
-  border-right-style: solid;
-  border-color: $light-brown;
-}
+
 
 .fa-plus-circle{
   color: $green;
@@ -56,19 +57,12 @@
 }
 
 .card-body{
-  height: 192px;
-  padding: 10px 5px 0 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card-body-link{
-  height: 192px;
+  padding: 15px 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 150px;
+  height: calc(100% - 29px);
 }
 
 .hidden-form {
@@ -78,16 +72,18 @@
 .link-icon{
   height: 22px;
 }
-// -------------tablet size
-@media screen and (max-width: 991px){
-  .no-gutters{
-    margin-right: 30;
-    margin-left: 30;
 
-    .col,
-    > [class*="col-"] {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
+.meal-link{
+  margin: auto 0;
+}
+
+
+@media screen and (min-width: 991px){
+  .index-row{
+    display: flex;
+  }
+
+  .seven-columns{
+    width: calc(100% / 7);
   }
 }

@@ -14,13 +14,13 @@
 
     <% @groups.each do |group| %>
 
-      <div class="row no-gutters index-row">
+      <h3 class = "fi flaticon-people-4"> <%= group.name %></h3>
 
-        <h3 class = "fi flaticon-people-4"><%= group.name %></h3>
+      <div class="row no-gutters index-row">
 
         <% @week_days.each do |day| %>
 
-          <div class="col-xs-14 col-sm-7 col-md-2">
+          <div class="col-xs-14 col-sm-7 seven-columns">
             <div class="card index-card">
               <div class ="card-heading">
                 <%= day.strftime("%A %e") %>
@@ -36,14 +36,14 @@
                     <div class="meal-link">
                       <%= image_tag avatar_url(meal.user), class: "avatar-md"%>
                       <p class="fi flaticon-people-6"><%= meal.user.username %> </p>
-                       <i class="fi flaticon-restaurant"></i>
+                       <i class="fi flaticon-tool"></i>
                         <%= meal.name %>
                     </div>
                   </div>
                 <% end %>
 
               <% else %>
-                <div class="card-body-link", type="button" class="" data-container="body" data-toggle="popover" data-placement="bottom" data-group-id="<%= group.id %>" data-day="<%= day %>">
+                <div class="card-body", type="button" class="" data-container="body" data-toggle="popover" data-placement="bottom" data-group-id="<%= group.id %>" data-day="<%= day %>">
                  <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
                 </div>
               <% end %>
