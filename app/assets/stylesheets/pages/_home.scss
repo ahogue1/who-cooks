@@ -23,10 +23,31 @@
   margin-left: 9em;
 }
 
+.container-info{
+  text-align: center;
+  padding-top: 32px;
+  color: $brown;
+}
+
 .row-info{
   display: flex;
+  justify-content: center;
+  padding: 33px 0;
 }
 
 .green{
   color: $green;
+}
+
+.info-col{
+  align-self: center;
+  text-align: center;
+  .fi{
+    font-size: 70px;
+  }
+}
+
+
+.features-container{
+  color: $brown;
 }
