@@ -6,7 +6,7 @@
 }
 
 .seven-columns:last-child{
-  border-right-style: solid;
+  border-right-style: double;
   border-color: $light-brown;
 }
 
@@ -20,11 +20,11 @@
   border-bottom-style: double;
   border-left-style: double;
   border-color: $light-brown;
+  border-right: 1px double rgba(0, 0, 0, 0);
   border-radius: 3px;
 }
 
 .index-card:hover{
-   border-style: double;
    border-color: $green;
    cursor: pointer;
    .card-heading{ background-color: $green; }
