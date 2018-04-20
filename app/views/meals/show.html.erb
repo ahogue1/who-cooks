@@ -1,79 +1,97 @@
 <div class="meal-container">
 
-  <!-- always visable: Meal information -->
-  <div class="meal-detials container-fluid">
-    <div class="user-label">
-      <%=  link_to "Planner", meals_path%>
-      <h4><%=  @meal.group.name %></h4>
-      <%= image_tag avatar_url(@meal.user), class: "avatar-md" %>
-      <h4><%= @meal.user.username %></h4>
-    </div>
-  </div>
 
     <!-- Only visible if user hasn't saved a recipe -->
   <% if @recipes %>
-    <div class="search-container">
-      <div class="search-heading">
-        <% if @meal.name != '' %>
-          <h2>We're having <%= @meal.name %>!</h2>
-        <% else %>
-          <h2>We're having <%= @meal.category %>!</h2>
-        <% end %>
-        <h4> Find a recipe you like and save it</h3>
-      </div>
-      <div class="container">
-        <div class="recipe-row row">
+
+    <div class="flex-center">
+      <%=  link_to "Planner >  ", meals_path %>
+      <h5><%=  @meal.group.name %></h5>
+    </div>
+
+    <div class="search-title">
+      <% if @meal.name != '' %>
+        <h2>We're having <%= @meal.name %> on <%= @meal.date.strftime("%A") %>!</h2>
+      <% else %>
+        <h2>We're having <%= @meal.category %> on <%= @meal.date.strftime("%A") %>!</h2>
+      <% end %>
+      <h4> Find a recipe you like and save it</h4>
+      <%= image_tag avatar_url(@meal.user), class: "avatar-md" %>
+      <h4 class="fi flaticon-people-6"><%= @meal.user.username %></h4>
+    </div>
+
+    <div class="container">
+      <div class="recipe-row row">
         <% @recipes.each do |recipe| %>
-          <div class="col-xs-10 col-sm-6 col-md-4">
+          <div class="col-xs-12 col-sm-6 col-md-3">
             <%= link_to recipe.url,  target: :_blank do %>
             <div class="recipe-card card">
-                <%= image_tag recipe.image %>
-                <p><%= recipe.label %></p>
+              <%= image_tag recipe.image %>
+              <div class="recipe-card-details">
+                <div class="recipe-card-name">
+                  <h4><%= recipe.label %></h4>
+                </div>
                 <p>From: <%= recipe.source %></p>
-                <p> <%= recipe.health_labels %></p>
+                <p class = "limit-line-height"> <%= recipe.health_labels %></p>
+              </div>
             </div>
-              <% end %>
-              <%= link_to "Save Recipe", meal_path(@meal, edamam_id: recipe.id), method: :patch, class: "green" %>
+            <% end %>
+            <%= link_to "Save Recipe", meal_path(@meal, edamam_id: recipe.id), method: :patch, class: "green" %>
           </div>
         <% end %>
       </div>
     </div>
-  </div>
 
 <!-- Only visible if user has saved one recipe for the day -->
   <% else %>
+    <div class="date-links">
+      <div class="flex-center">
+        <%=  link_to "Planner >  ", meals_path %>
+        <h5><%=  @meal.group.name %></h5>
+      </div>
+      <h3><%= @meal.date.strftime("%A %d") %></h3>
+    </div>
+
     <div class="recipe-container">
+
       <div class="recipe-image">
         <%= image_tag @recipe.image %>
       </div>
-      <div class="recipe-show">
+
+      <div>
         <div class="recipe-heading">
           <h1><%= @meal.name %></h1>
         </div>
-        <div class="recipe-details">
-          <p>Source: <%= @recipe.source %></p>
-          <p>Servings: <%= @recipe.yield %>
-          <p><%= @recipe.health_labels %></p>
-          <%= link_to "View Recipe", @recipe.url, class: "btn btn-primary", target: :blank %>
-          <%= link_to "edit meal", edit_meal_path, class: "btn btn-primary", target: :blank %>
-        </div>
 
+        <div class="recipe-show">
+
+
+          <div class="recipe-details">
+            <p>Source: <%= @recipe.source %></p>
+            <p>Servings: <%= @recipe.yield %>
+            <p><%= @recipe.health_labels %></p>
+            <%= link_to "View Recipe", @recipe.url, class: "btn btn-primary", target: :blank %>
+            <%= link_to "edit meal", edit_meal_path, class: "btn btn-primary", target: :blank %>
+          </div>
+
+          <div class= "meal-user">
+            <%= image_tag avatar_url(@meal.user), class: "avatar-md" %>
+            <h4 class="fi flaticon-people-6"><%= @meal.user.username %></h4>
+          </div>
+        </div>
       </div>
+
     </div>
+
   <% end %>
 
-  <!-- Always visible: date of meal -->
-  <div class="container-fluid date-show">
-    <h2> <%= @meal.date.strftime("%A") %></h2>
-  </div>
-</div>
-
 <!-- list recipe ingredients if recipe has been saved for the day -->
-<% if @recipes.nil? %>
-  <div class="ingredient-list">
-    <h3>Ingredients</h3>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <p> <%= ingredient.name %></p>
-    <% end %>
-  </div>
-<% end %>
+  <% if @recipes.nil? %>
+    <div class="ingredient-list">
+      <h3>Ingredients</h3>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <p> <%= ingredient.name %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
