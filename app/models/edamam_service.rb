@@ -22,8 +22,8 @@ class EdamamService
       recipe.label = json_recipe['recipe']['label']
       recipe.url = json_recipe['recipe']['url']
       recipe.image = json_recipe['recipe']['image']
-      recipe.health_labels = json_recipe['recipe']['healthLabels']
-      recipe.diet_labels = json_recipe['recipe']['dietLabels']
+      recipe.health_labels = json_recipe['recipe']['healthLabels'].join(', ')
+      recipe.diet_labels = json_recipe['recipe']['dietLabels'].join(', ')
       recipe.calories = json_recipe['recipe']['calories']
       recipe.yield = json_recipe['recipe']['yield']
       recipe.source = json_recipe['recipe']['source']
