@@ -1,6 +1,7 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap
+//= require cocoon
 //= require_tree .
 
 $().ready(function() {

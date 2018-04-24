@@ -51,6 +51,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (10.0.1)
+    cocoon (1.2.11)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
@@ -227,6 +228,7 @@ DEPENDENCIES
   annotate (~> 2.7)
   autoprefixer-rails
   bootstrap-sass (~> 3.3)
+  cocoon (~> 1.2, >= 1.2.9)
   devise
   figaro
   font-awesome-sass (~> 4.7)
