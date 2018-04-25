@@ -13,12 +13,4 @@ class Group < ApplicationRecord
   has_many :users, through: :groups_users
   has_many :meals
   accepts_nested_attributes_for :groups_users, reject_if: :all_blank, allow_destroy: true
-
-  def self.build(group_params, user)
-    group = Group.new(group_params)
-    group.users << user
-
-    group
-  end
-
 end
