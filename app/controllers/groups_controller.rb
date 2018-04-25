@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.build(group_params, current_user)
+    @group = Group.new(group_params)
 
     if @group.save
       redirect_to meals_path, notice: "Group Created!"
@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, groups_users_attributes: [:user_id, :_destroy])
   end
 
 end
