@@ -29,7 +29,7 @@
               <%= image_tag recipe.image %>
               <div class="recipe-card-details">
                 <div class="recipe-card-name">
-                  <h4><%= recipe.label %></h4>
+                  <h4 title="<%=recipe.label%>"><%= truncate(recipe.label, length: 37, separator: " ") %></h4>
                 </div>
                 <p>From: <%= recipe.source %></p>
                 <p class = "limit-line-height"> <%= recipe.health_labels %></p>
