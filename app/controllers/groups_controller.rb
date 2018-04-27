@@ -14,6 +14,9 @@ class GroupsController < ApplicationController
     end
   end
 
+  def users
+    @users = Group.find(params[:group_id]).users
+  end
 
   private
 

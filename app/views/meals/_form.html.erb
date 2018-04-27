@@ -2,7 +2,18 @@
   <%= f.input :name, label: "Meal:", placeholder: "Pizza, Tacos, Sesame Chicken..." %>
   <%= f.input :date, as: :text, as: :hidden %>
   <%= f.input :category, label: "Not sure yet? Enter a category and we will help", placeholder: "Italian, Vegetarian..."%>
-  <%= f.association :user, label_method: :username, label: "Cook:" %>
+
+  <div class="form-group select required meal_user">
+    <label class="control-label select required" for="meal_user_id">
+      <abbr title="required">*</abbr> Cook:
+    </label>
+    <div class="loading-spinner">
+    <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+    </div>
+    <select class="form-control select required hidden" name="meal[user_id]" id="meal_user_id">
+    </select>
+  </div>
+
   <%= f.association :group, label_method: :name, as: :hidden %>
 
   <%= f.submit 'Create', class: "btn btn-primary" %>

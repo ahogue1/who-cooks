@@ -29,13 +29,16 @@
 #                                  PATCH    /meals/:id(.:format)                    meals#update
 #                                  PUT      /meals/:id(.:format)                    meals#update
 #                                  DELETE   /meals/:id(.:format)                    meals#destroy
-# 
+#
 
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
 
-  resources :groups, only: [:new, :create]
+  resources :groups, only: [:new, :create] do
+    get 'users', defaults: { format: :json }
+  end
+
   resources :meals
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
