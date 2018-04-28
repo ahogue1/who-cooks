@@ -29,7 +29,8 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
 
-    if @group.save
+
+    if @group.update(group_params)
       redirect_to meals_path
     else
       redirect_to new_group_path(@meal), error: "Group couldn't be created"
@@ -47,7 +48,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name, groups_users_attributes: [:user_id, :_destroy])
+    params.require(:group).permit(:name, groups_users_attributes: [:id, :user_id, :_destroy])
   end
 
 end
