@@ -14,9 +14,28 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @group = Group.find(params[:group_id])
+  end
+
   def users
     @users = Group.find(params[:group_id]).users
   end
+
+   def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+
+    if @group.save
+      redirect_to meals_path
+    else
+      redirect_to new_group_path(@meal), error: "Group couldn't be created"
+    end
+  end
+
 
   private
 

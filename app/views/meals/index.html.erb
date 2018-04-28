@@ -1,61 +1,51 @@
 <div class="container index-container">
-  <% if current_user.groups.empty? %>
-    <h2>You don't have any group calendars yet, create a group to get going</h2>
-      <%= simple_form_for(@group) do |f| %>
-      <%= f.input :name, label: "Group name" %>
+  <h3 class="fi flaticon-time-1 right-align">
+  <%= @week_days.first.strftime("%B %e") %> - <%= @week_days.last.strftime("%B %e") %>
+  </h3>
 
-      <%= f.submit 'Create', class: "btn btn-primary" %>
-  <% end %>
+  <% @groups.each do |group| %>
 
-  <% else %>
-    <h3 class="fi flaticon-time-1 right-align">
-    <%= @week_days.first.strftime("%B %e") %> - <%= @week_days.last.strftime("%B %e") %>
-    </h3>
+    <h3 class = "fi flaticon-people-4"> <%= group.name %></h3>
 
-    <% @groups.each do |group| %>
+    <div class="row no-gutters index-row">
 
-      <h3 class = "fi flaticon-people-4"> <%= group.name %></h3>
+      <% @week_days.each do |day| %>
 
-      <div class="row no-gutters index-row">
+        <div class="col-xs-14 col-sm-7 seven-columns">
+          <div class="card index-card">
+            <div class ="card-heading">
+              <%= day.strftime("%A %e") %>
+            </div>
 
-        <% @week_days.each do |day| %>
+            <% meal = @meals.find { |meal| meal.date == day && meal.group_id == group.id } %>
 
-          <div class="col-xs-14 col-sm-7 seven-columns">
-            <div class="card index-card">
-              <div class ="card-heading">
-                <%= day.strftime("%A %e") %>
-              </div>
+            <% if meal %>
 
-              <% meal = @meals.find { |meal| meal.date == day && meal.group_id == group.id } %>
+              <%= link_to meal_path(meal.id) do %>
+                <div class="card-body">
 
-              <% if meal %>
-
-                <%= link_to meal_path(meal.id) do %>
-                  <div class="card-body">
-
-                    <div class="meal-link">
-                      <%= image_tag avatar_url(meal.user), class: "avatar-md"%>
-                      <p class="fi flaticon-people-6"><%= meal.user.username %> </p>
-                       <i class="fi flaticon-tool"></i>
-                        <%= meal.name %>
-                    </div>
+                  <div class="meal-link">
+                    <%= image_tag avatar_url(meal.user), class: "avatar-md"%>
+                    <p class="fi flaticon-people-6"><%= meal.user.username %> </p>
+                     <i class="fi flaticon-tool"></i>
+                      <%= meal.name %>
                   </div>
-                <% end %>
-
-              <% else %>
-                <div class="card-body", type="button" class="" data-container="body" data-toggle="popover" data-placement="bottom" data-group-id="<%= group.id %>" data-day="<%= day %>">
-                 <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
                 </div>
               <% end %>
 
-            </div>
+            <% else %>
+              <div class="card-body", type="button" class="" data-container="body" data-toggle="popover" data-placement="bottom" data-group-id="<%= group.id %>" data-day="<%= day %>">
+               <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+              </div>
+            <% end %>
+
           </div>
+        </div>
 
-        <% end %>
+      <% end %>
 
-      </div>
+    </div>
 
-    <% end %>
   <% end %>
 
 </div>
