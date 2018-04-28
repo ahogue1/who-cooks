@@ -1,4 +1,4 @@
 <div class="nested-fields">
-  <%= f.input :user_id, collection: User.all, label_method: :username %>
+  <%= f.input :user_id, collection: @users, label_method: :username %>
   <%= link_to_remove_association "remove user", f %>
   </div>

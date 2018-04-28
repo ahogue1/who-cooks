@@ -2,10 +2,12 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @users = User.where.not(id: current_user.id)
   end
 
   def create
     @group = Group.new(group_params)
+    @group.users << current_user
 
     if @group.save
       redirect_to meals_path, notice: "Group Created!"
@@ -24,6 +26,7 @@ class GroupsController < ApplicationController
 
    def edit
     @group = Group.find(params[:id])
+    @users = User.where.not(id: current_user.id)
   end
 
   def update
