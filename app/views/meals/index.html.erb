@@ -6,6 +6,7 @@
   <% @groups.each do |group| %>
 
     <h3 class = "fi flaticon-people-4"> <%= group.name %></h3>
+    <%= link_to "edit", edit_group_path(group) %>
 
     <div class="row no-gutters index-row">
 
