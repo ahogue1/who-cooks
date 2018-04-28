@@ -7,9 +7,11 @@ class MealsController < ApplicationController
     @groups = current_user.groups
     @week_days = @today.beginning_of_week..@today.end_of_week
 
-    @meals = Meal.
-      where(group: @groups).
-      where(date: @week_days)
+    if @groups.any?
+      @meals = Meal.where(group: @groups, date: @week_days)
+    else
+      redirect_to new_group_path
+    end
   end
 
   def show
