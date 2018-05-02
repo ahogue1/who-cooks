@@ -31,6 +31,7 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
+    @group.users << current_user
 
 
     if @group.update(group_params)
