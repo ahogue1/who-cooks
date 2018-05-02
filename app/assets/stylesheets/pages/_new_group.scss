@@ -1,3 +1,10 @@
+.group-heading{
+  margin: 10px;
+  text-align: center;
+  color: $brown;
+  h1{ display: inline-block; }
+  i{ font-size: 52px; }
+}
 .remove{
   color: $link-gray;
   margin-top: 10px;
@@ -7,7 +14,12 @@
     color: $red;
   }
 
-.select{
+.remove:active{
+  color: $red;
+}
+
+
+.nested-fields .select{
   border: 0;
   outline: 1px solid #ccc;
   background-color: white;
@@ -27,4 +39,12 @@
 
 .fa-user-plus{
   color: $link-gray;
+}
+
+.left-align{
+  text-align: left;
+}
+
+.center-btn{
+  text-align: center;
 }

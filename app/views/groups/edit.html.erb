@@ -1,9 +1,21 @@
 <div class="container">
 
-  <h1>Edit group</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <div class ="group-heading">
+        <h1>Edit <%= @group.name %></h1>
+        <i class="fi flaticon-people-4"></i>
+      </div>
+      <%=  render 'form' %>
 
-  <%=  render 'form' %>
+      <div class="right-align">
+        <%=  link_to group_path, method: :delete, class: "remove left-align" do %>
+          <i class="fa fa-trash-o"></i>
+          Delete Group
+        <% end %>
+      </div>
 
-  <%=  link_to "delete group", group_path, method: :delete %>
+    </div>
+  </div>
 
 </div>

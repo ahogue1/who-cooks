@@ -10,7 +10,6 @@
 
       <div class= "green-hover">
         <%= link_to_add_association f, :groups_users, class: "add" do %>
-          Add Users
           <i class="fa fa-user-plus"></i>
         <% end %>
       </div>
@@ -19,5 +18,8 @@
 
   </div>
 
-  <%= f.submit 'Save', class: "btn btn-primary" %>
+  <div class="center-btn">
+    <%= f.submit 'Save Group', class: "btn btn-primary" %>
+  </div>
+
 <% end %>
