@@ -13,7 +13,7 @@
       <% if @meal.name != '' %>
         <h2>We're having <%= @meal.name %> on <%= @meal.date.strftime("%A") %>!</h2>
       <% else %>
-        <h2>We're having <%= @meal.category %> on <%= @meal.date.strftime("%A") %>!</h2>
+        <h2>We're having <%= @meal.category %> food on <%= @meal.date.strftime("%A") %>!</h2>
       <% end %>
       <h4> Find a recipe you like and save it</h4>
       <%= image_tag avatar_url(@meal.user), class: "avatar-md" %>
