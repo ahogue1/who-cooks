@@ -39,11 +39,12 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_and_belongs_to_many :groups
-  has_many :meals
+  has_many :meals, dependent: :destroy
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
+    user_params[:username] = "#{auth.info.first_name} #{auth.info.last_name}"
     user_params[:photo] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
