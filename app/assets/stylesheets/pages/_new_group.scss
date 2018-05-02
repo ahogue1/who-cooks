@@ -1,0 +1,30 @@
+.remove{
+  color: $link-gray;
+  margin-top: 10px;
+}
+
+.remove:hover{
+    color: $red;
+  }
+
+.select{
+  border: 0;
+  outline: 1px solid #ccc;
+  background-color: white;
+}
+
+.form-control:focus{
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0;
+    border-color: #66afe9;
+  }
+
+.add{
+  color: $link-gray;
+  font-family: $body-font;
+  :hover{ text-decoration: none; }
+}
+
+.fa-user-plus{
+  color: $link-gray;
+}

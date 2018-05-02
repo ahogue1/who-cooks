@@ -1,15 +1,22 @@
 <%= simple_form_for(@group) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: "Group Name" %>
 
   <div id="groups_users">
     <%= f.simple_fields_for :groups_users do |user| %>
       <%= render 'groups_user_fields', f: user %>
-
     <% end %>
 
-    <div class="links">
-      <%= link_to_add_association 'add user', f, :groups_users %>
+    <div class="links form-group">
+
+      <div class= "green-hover">
+        <%= link_to_add_association f, :groups_users, class: "add" do %>
+          Add Users
+          <i class="fa fa-user-plus"></i>
+        <% end %>
+      </div>
+
     </div>
+
   </div>
 
   <%= f.submit 'Save', class: "btn btn-primary" %>

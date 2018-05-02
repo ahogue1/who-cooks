@@ -1,4 +1,12 @@
-<div class="nested-fields">
-  <%= f.input :user_id, collection: @users, label_method: :username %>
-  <%= link_to_remove_association "remove user", f %>
+<div class="row">
+  <div class="nested-fields">
+    <div class="col-xs-9">
+      <%= f.input :user_id, collection: @users, label_method: :username, label: false, class: "" %>
+    </div>
+    <div class="col-xs-3">
+
+      <%= link_to_remove_association "", f, class: "fa fa-user-times remove" %>
+
+    </div>
   </div>
+</div>
