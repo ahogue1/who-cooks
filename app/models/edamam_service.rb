@@ -10,6 +10,7 @@ class EdamamService
         app_id: ENV['EDAMAM_ID'],
         app_key: ENV['EDAMAM_SECRET'],
         excluded: "dessert",
+        to: 12,
       }
     )
 
