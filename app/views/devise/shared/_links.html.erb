@@ -1,11 +1,17 @@
 
 <%- if devise_mapping.omniauthable? %>
-  <div class="facebook-btn btn btn-primary">
-    <i class="fa fa-facebook" aria-hidden="true"></i>
+
+
       <%- resource_class.omniauth_providers.each do |provider| %>
-        <%= link_to "Log in with Facebook", omniauth_authorize_path(resource_name, provider) %><br />
+        <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+          <div class="facebook-btn btn btn-primary">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            Login With Facebook
+          </div>
+        <% end %>
+        <br />
       <% end -%>
-  </div> <br>
+   <br>
 
 <%- if controller_name != 'sessions' %>
   <%= link_to "Already registered? Log in here", new_session_path(resource_name) %><br />

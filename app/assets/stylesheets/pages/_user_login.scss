@@ -17,6 +17,6 @@
   a{ color: white; }
 }
 
-.facebook-btn:hover{
+.facebook-btn:focus, .facebook-btn:active, .facebook-btn:active:hover, .facebook-btn:hover, .facebook-btn:active:focus{
   background-color: #33518e;
 }

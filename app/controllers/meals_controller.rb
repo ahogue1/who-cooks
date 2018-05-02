@@ -10,7 +10,7 @@ class MealsController < ApplicationController
     if @groups.any?
       @meals = Meal.where(group: @groups, date: @week_days)
     else
-      redirect_to new_group_path, notice: "You don't have a group yet, let's make one!"
+      redirect_to new_group_path, flash: { success: "You don't have a group yet, let's make one!" }
     end
   end
 

@@ -8,8 +8,12 @@
   color: white;
 }
 .alert-info {
-  background: $blue;
+  background: $green;
 }
 .alert-warning {
   background: $red;
+}
+
+.alert-secondary{
+  background: $alert-blue;
 }
