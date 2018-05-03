@@ -32,7 +32,7 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 8px 30px;
 }
 
 /* Navbar link */
@@ -45,7 +45,6 @@
 
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
-  margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
@@ -73,3 +72,9 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.dropdown-toggle{
+  padding: 20px;
+}
+
+.dropdown-menu-right{ right: 10px; }
