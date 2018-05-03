@@ -37,7 +37,6 @@ a:hover {
 }
 
 .row-info{
-  display: flex;
   justify-content: center;
   padding: 33px 0;
 }
@@ -66,6 +65,17 @@ a:hover {
     background-position: center;
   }
 }
+
+@media screen and (max-width: 767px){
+  .info-col{
+    margin-bottom: 45px;
+    .info-card {
+     width: 55%;
+    margin: 0 auto;
+    }
+  }
+}
+
 
 @media screen and (max-width: 439px){
 
