@@ -1,10 +1,13 @@
 // Specific CSS for your home-page
+.page-wrapper{
+  min-height: 633px;
+}
 
-  a { color: $link-gray; }
-  a:hover {
-    text-decoration: none;
-    color: $green;
-  }
+a { color: $link-gray; }
+a:hover {
+  text-decoration: none;
+  color: $green;
+}
 
 .banner{
     color: white;
