@@ -92,7 +92,7 @@
   color: $brown;
 }
 
-@media screen and (min-width: 991px){
+@media screen and (min-width: 992px){
   .index-row{
     display: flex;
   }
@@ -100,8 +100,27 @@
   .seven-columns{
     width: calc(100% / 7);
   }
+
+  .right-align{
+    text-align: right;
+  }
+}
+//--------tablet view ------------------
+@media screen and (max-width: 992px){
+  .index-card{
+    margin: 5px;
+    border-right: 3px double $light-brown;
+  }
+
+  .seven-columns:last-child{
+    border-right-style: none;
+  }
 }
 
-.right-align{
-  text-align: right;
+@media screen and (max-width: 767px) {
+  .index-container{
+    width: 422px;
+  }
 }
+
+
