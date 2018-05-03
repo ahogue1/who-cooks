@@ -59,3 +59,23 @@ a:hover {
   color: $brown;
 }
 
+@media screen and (max-width: 992px){
+  .banner-content{ margin-left: 6em; }
+
+  .banner{
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 439px){
+
+  .banner-content{
+    margin-left: 3em;
+    .btn{ margin-left: 27px; }
+  }
+
+  .banner{ height: 570px; }
+
+
+}
+
