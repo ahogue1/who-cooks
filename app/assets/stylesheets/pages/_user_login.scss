@@ -20,3 +20,15 @@
 .facebook-btn:focus, .facebook-btn:active, .facebook-btn:active:hover, .facebook-btn:hover, .facebook-btn:active:focus{
   background-color: #33518e;
 }
+
+@media screen and (max-width: 960px){
+  .form-page{
+    width: 47%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .form-page{
+    width: 70%;
+  }
+}
