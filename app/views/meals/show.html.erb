@@ -23,7 +23,7 @@
     <div class="container search-container">
       <div class="recipe-row row">
         <% @recipes.each do |recipe| %>
-          <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="col-xs-6 col-sm-4 col-md-3">
             <%= link_to recipe.url,  target: :_blank do %>
             <div class="recipe-card card">
               <%= image_tag recipe.image %>

@@ -95,3 +95,10 @@
   h5 { margin-left: 10px; }
   h3{ margin-top: 0; }
 }
+
+@media screen and (max-width: 506px){
+  .col-xs-6{
+    width: 100%
+  }
+
+}
