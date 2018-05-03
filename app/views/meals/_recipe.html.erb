@@ -1,0 +1,37 @@
+<div class="flex-center date-links">
+  <%=  link_to "Planner >   ", meals_path %>
+  <h5><%=  @meal.group.name %></h5>
+</div>
+
+<div class="search-title">
+  <% if @meal.name != '' %>
+    <h2>We're having <%= @meal.name %> on <%= @meal.date.strftime("%A") %>!</h2>
+  <% else %>
+    <h2>We're having <%= @meal.category %> food on <%= @meal.date.strftime("%A") %>!</h2>
+  <% end %>
+  <h4> Find a recipe you like and save it</h4>
+  <%= image_tag avatar_url(@meal.user), class: "avatar-md" %>
+  <h4 class="fi flaticon-people-6"><%= @meal.user.username %></h4>
+</div>
+
+<div class="container search-container">
+  <div class="recipe-row row">
+    <% @recipes.each do |recipe| %>
+      <div class="col-xs-6 col-sm-4 col-md-3">
+        <%= link_to recipe.url,  target: :_blank do %>
+        <div class="recipe-card card">
+          <%= image_tag recipe.image %>
+          <div class="recipe-card-details">
+            <div class="recipe-card-name">
+              <h4 title="<%=recipe.label%>"><%= truncate(recipe.label, length: 37, separator: " ") %></h4>
+            </div>
+            <p>From: <%= recipe.source %></p>
+            <p class = "limit-line-height"> <%= recipe.health_labels %></p>
+          </div>
+        </div>
+        <% end %>
+        <%= link_to "Save Recipe", meal_path(@meal, edamam_id: recipe.edamam_id), method: :patch, class: "green" %>
+      </div>
+    <% end %>
+  </div>
+</div>
