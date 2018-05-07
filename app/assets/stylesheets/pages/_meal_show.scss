@@ -96,6 +96,39 @@
   h3{ margin-top: 0; }
 }
 
+@media screen and (max-width: 988px){
+  .recipe-container {
+      display: block;
+      width: 100%;
+      text-align: center;
+      h1{ font-size: 35px; }
+    }
+
+  .recipe-image{ margin: 20px auto; }
+
+  .recipe-show{
+    display: block;
+    padding: 0;
+  }
+
+  .recipe-heading{
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  .recipe-details {
+    border: solid;
+    padding: 5px;
+    width: 70%;
+    margin: auto;
+    padding: 5px;
+  }
+
+  .meal-user{
+    margin: 25px;
+  }
+}
+
 @media screen and (max-width: 506px){
   .col-xs-6{
     width: 100%
