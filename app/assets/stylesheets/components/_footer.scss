@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 70px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
 }
@@ -21,6 +21,9 @@
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
-  color: #D23333;
+
+.yam-footer{
+  display: flex;
+  padding-top: 15px;
+  img{ height: 30px;}
 }
