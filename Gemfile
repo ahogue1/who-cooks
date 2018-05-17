@@ -15,6 +15,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'cloudinary', '~> 1.1'
 
 gem 'omniauth-facebook', '~> 4.0'
 gem 'httparty', '~> 0.13.7'
