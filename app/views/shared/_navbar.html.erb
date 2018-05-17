@@ -10,7 +10,10 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "New Group", new_group_path, class: "navbar-wagon-item navbar-wagon-link new-group-btn btn btn-primary" %>
+
+      <%= link_to "New Group", new_group_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <a class="navbar-wagon-item navbar-wagon-link planner-btn btn btn-primary" href="meals#show" >Planner </a>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
