@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .page-wrapper{
-  min-height: 633px;
+  min-height: 663px;
 }
 
 a { color: $link-gray; }
@@ -15,8 +15,9 @@ a:hover {
     height: 700px;
     display: flex;
     background-position: center left;
-    h4{
+    p{
       padding: 58px 0;
+      font-size: 26px;
     }
     .btn{ margin-left: 96px; }
     // justify-content: center;
