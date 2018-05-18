@@ -24,6 +24,7 @@
 #  last_name              :string
 #  token                  :string
 #  token_expiry           :datetime
+#  facebook_photo         :string
 #
 # Indexes
 #
