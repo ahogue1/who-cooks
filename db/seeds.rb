@@ -17,29 +17,28 @@ tacos = Recipe.find_by(url: "http://www.sfgate.com/food/recipes/detail/?rid=1702
 if mom && our_house
   sunday = Date.today.beginning_of_week
 
-  meals = (1..30).flat_map do |i|
-    [
-      {
-        name: "Roast",
-        user: mom,
-        group: family,
-        date: (sunday + i.weeks)
-      },
-      {
-        name: "Lasagna",
-        user: amy,
-        group: our_house,
-        date: (sunday + i.weeks + 2.days)
-      },
-      {
-        name: tacos.label,
-        user: alex,
-        group: our_house,
-        date: (sunday + i.weeks + 4.days),
-        recipe: tacos
-      }
-    ]
+  (1..30).each do |i|
+    Meal.create({
+      name: "Roast",
+      user: mom,
+      group: family,
+      date: (sunday + i.weeks)
+    })
+
+    Meal.create({
+      name: "Lasagna",
+      user: amy,
+      group: our_house,
+      date: (sunday + i.weeks + 2.days)
+    })
+
+    Meal.create({
+      name: tacos.label,
+      user: alex,
+      group: our_house,
+      date: (sunday + i.weeks + 4.days),
+      recipe: tacos
+    })
   end
 
-  Meal.create(meals)
 end
